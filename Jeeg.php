@@ -16,14 +16,14 @@ class Jeeg {
 
     // extremidades inf
     protected $extInf;
-    // atacar
+    
 
-    public function __construct($n, ExtremidadSuperior $bd, ExtremidadSuperior $bi, ExtremidadInferior $p)
+    public function __construct($n, ExtremidadSuperior $ed, ExtremidadSuperior $ei, ExtremidadInferior $einf)
     {
         $this->name = $n;
-        $this->extD = $bd;
-        $this->extI = $bi;
-        $this->extInf = $p;
+        $this->extD = $ed;
+        $this->extI = $ei;
+        $this->extInf = $einf;
     }
     
     public function atacar()
@@ -47,6 +47,21 @@ class Jeeg {
         $this->extInf->retroceder();
         $this->extD->defender();
         $this->extI->defender();
+    }
+
+    public function cambiarExtD(ExtremidadSuperior $ed)
+    {
+        $this->extD = $ed;
+    }
+
+    public function cambiarExtI(ExtremidadSuperior $ei)
+    {
+        $this->extI = $ei;
+    }
+
+    public function cambiarExtInf(ExtremidadInferior $einf)
+    {
+        $this->extInf = $einf;
     }
 
 }

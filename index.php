@@ -8,10 +8,14 @@ $miJeeg = new Jeeg("SuperJeegGalactico", new Taladro, new Brazo, new Tanque);
 $miJeeg2 = new Jeeg("Juanito",new Motosierra, new Taladro, new Piernas);
 
 $miJeeg->atacar();
-$miJeeg->defender();
+$miJeeg->cambiarExtD(new Motosierra);
+$miJeeg->cambiarExtI(new Taladro);
+$miJeeg->cambiarExtInf(new Piernas);
+$miJeeg->atacar();
 
 
-$miJeeg2->superAtaque();
+
+
 
 // posibilidad de cambiar una extremidad durante su vida
 
