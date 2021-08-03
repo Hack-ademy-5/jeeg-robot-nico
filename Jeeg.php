@@ -1,11 +1,11 @@
 <?php
 include "ExtremidadSuperior.php";
 include "ExtremidadInferior.php";
-include "Tanque.php";
 include "Taladro.php";
 include "Brazo.php";
-include "Piernas.php";
 include "Motosierra.php";
+include "Tanque.php";
+include "Piernas.php";
 
 class Jeeg {
     public $name;
@@ -17,6 +17,7 @@ class Jeeg {
     // extremidades inf
     protected $extInf;
     
+
 
     public function __construct($n, ExtremidadSuperior $ed, ExtremidadSuperior $ei, ExtremidadInferior $einf)
     {
@@ -63,5 +64,34 @@ class Jeeg {
     {
         $this->extInf = $einf;
     }
+
+    public static function generator($n)
+    {
+        $jeegs = [];
+        $extSup = ['Taladro','Motosierra','Brazo'];
+        $extInf = ['Piernas','Tanque'];
+        for ($i=0; $i < $n; $i++) { 
+           $jeegs[] = new Jeeg("jeeg-$i", self::getRandExt($extSup), self::getRandExt($extSup), self::getRandExt($extInf));
+        }
+    
+        return $jeegs;
+    }
+
+    public static function ataqueDeMasa($ej)
+    {
+        foreach ($ej as $jeeg) {
+            $jeeg->atacar();
+        }
+    }
+    
+    private static function getRandExt($ext)
+    {
+        $len = count($ext);
+        $index = rand(0,$len-1); // 0
+        $randExt = $ext[$index]; // Taladro
+        
+        return new $randExt; // new Taladro
+    }
+    
 
 }

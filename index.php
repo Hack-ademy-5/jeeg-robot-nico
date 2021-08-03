@@ -13,10 +13,13 @@ $miJeeg->cambiarExtI(new Taladro);
 $miJeeg->cambiarExtInf(new Piernas);
 $miJeeg->atacar();
 
-
-
-
-
-// posibilidad de cambiar una extremidad durante su vida
-
 // crear X jeeg robots con las extremidades random
+
+$miEjercito = Jeeg::generator(100);
+
+// cada jeeg robot lanza un ataque
+
+Jeeg::ataqueDeMasa($miEjercito);
+
+
+
