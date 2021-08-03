@@ -1,47 +1,52 @@
 <?php
+include "ExtremidadSuperior.php";
+include "ExtremidadInferior.php";
+include "Tanque.php";
+include "Taladro.php";
 include "Brazo.php";
 include "Piernas.php";
+include "Motosierra.php";
 
 class Jeeg {
     public $name;
     // extremidad d
-    protected $brazoD;
+    protected $extD;
     // extremidad i
-    protected $brazoI;
+    protected $extI;
 
     // extremidades inf
-    protected $piernas;
+    protected $extInf;
     // atacar
 
-    public function __construct($n, Brazo $bd, Brazo $bi, Piernas $p)
+    public function __construct($n, ExtremidadSuperior $bd, ExtremidadSuperior $bi, ExtremidadInferior $p)
     {
         $this->name = $n;
-        $this->brazoD = $bd;
-        $this->brazoI = $bi;
-        $this->piernas = $p;
+        $this->extD = $bd;
+        $this->extI = $bi;
+        $this->extInf = $p;
     }
+    
     public function atacar()
     {
-        $this->piernas->avanzar();
-        $this->brazoD->atacar();
-        $this->brazoD->atacar();
-        $this->brazoI->atacar();
+        $this->extInf->avanzar();
+        $this->extD->atacar();
+        $this->extD->atacar();
+        $this->extI->atacar();
     }
     // super ataque
     public function superAtaque()
     {
         for ($i=0; $i < 10; $i++) { 
-            $this->brazoI->atacar();
-            $this->brazoD->atacar();
+            $this->extI->atacar();
+            $this->extD->atacar();
         }
     }
     // defender
-
     public function defender()
     {
-        $this->piernas->retroceder();
-        $this->brazoD->defender();
-        $this->brazoI->defender();
+        $this->extInf->retroceder();
+        $this->extD->defender();
+        $this->extI->defender();
     }
 
 }

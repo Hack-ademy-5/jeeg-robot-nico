@@ -1,6 +1,6 @@
 <?php
 
-class Brazo {
+class Brazo extends ExtremidadSuperior{
 
     public function atacar()
     {

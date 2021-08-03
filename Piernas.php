@@ -1,6 +1,6 @@
 <?php
 
-class Piernas {
+class Piernas extends ExtremidadInferior{
 
     public function avanzar()
     {
